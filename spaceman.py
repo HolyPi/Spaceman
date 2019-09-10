@@ -21,10 +21,11 @@ def load_word():
 
 def is_word_guessed(secret_word, letters_guessed):
 
-    if letters_guessed == secret_word
-      bool = true
-      else
-      bool = false
+    if letters_guesed == secret_word:
+        secret_word = True
+    else:
+        secret_word = False
+    pass
 
 
     # A function that checks if all the letters of the secret word have been guessed.
@@ -35,7 +36,7 @@ def is_word_guessed(secret_word, letters_guessed):
     #     bool: True only if all the letters of secret_word are in letters_guessed, False otherwise
     # '''
     # # TODO: Loop through the letters in the secret_word and check if a letter is not in lettersGuessed
-    pass
+
 
     def guess(prompt):
 
@@ -56,7 +57,7 @@ def get_guessed_word(secret_word, letters_guessed):
     #TODO: Loop through the letters in secret word and build a string that shows the letters that have been guessed correctly so far that are saved in letters_guessed and underscores for the letters that have not been guessed yet
 for i in secret_word
 if i in letters_guessed:
-    display 
+    display
     else
     display[i] = "_"
     pass
@@ -107,8 +108,11 @@ print ("Good luck!")
 
 
 
-
-
+running = True
+while running:
+    selection = user_input(
+        ("Press Y to start the game!")
+    running = select(selection)
 
 #These function calls that will start the game
 secret_word = load_word()
