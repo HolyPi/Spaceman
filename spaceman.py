@@ -68,17 +68,13 @@ def is_guess_in_word(guess, secret_word):
     #TODO: check if the letter guess is in the secret word
     return(guess in secret_word)
 
-    for guess in secret_word:
-        if guess in secret_word:
+    for letters in secret_word:
+        if letters == secret_word:
             return True
-        if is_word_guessed(secret_word, letters_guessed):
-            print ("You've completed and found the secret word.")
-        break
-
     else:
-        print("Oops, wrong answer! Try again!")
+        # print("Oops, wrong answer! Try again!")
         return False
-        guesses_used -=1
+        # guesses_used -=1
 
 
 
@@ -93,16 +89,13 @@ def spaceman(secret_word):
 
     #TODO: show the player information about the game according to the project spec
     print("Welcome to Spaceman, astronaut! Shall you reach for the stars?")
-    print ("Now for instructions: the secret word has " + str(len(secretword)) + " letters.")
-    print ("You can guess incorrectly 7 times. Only one letter per round shall be guessed.")
-    print ("Good luck!")
+    print("Now for instructions: the secret word has {} letters".format(len(secret_word)))
+    print("You can guess incorrectly 7 times. Only one letter per round shall be guessed.")
+    print("Good luck!")
     guesses_used = 7
-    while guesses_used > 0
-    player_input
+    while guesses_used > 0:
+        player_guess = input("Enter a character:")
 
-    print("Guesses remaining:", guesses)
-    print()
-    letters_guessed = []
     #TODO: Ask the player to guess one letter per round and check that it is only one letter
 
     #TODO: Check if the guessed letter is in the secret or not and give the player feedback
@@ -115,5 +108,11 @@ def spaceman(secret_word):
 #These function calls that will start the game
 play_again = True
 while play_again:
-secret_word = load_word()
-spaceman(secret_word)
+    secret_word = load_word()
+    spaceman(secret_word)
+
+    play_again = input("Try again?").lower()
+    if play_again == "yes":
+        play_again = True
+    else:
+        play_again = False
