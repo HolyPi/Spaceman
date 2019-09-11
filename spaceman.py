@@ -132,7 +132,8 @@ def spaceman(secret_word):
     letters_guessed = []
 
     while guesses_used > 0:
-        player_input = input("Enter a character:")
+        player_input = input("Enter a character:").lower()
+
 
         # if len(player_input) > 1:
         #     print("Sorry, one character only!")
