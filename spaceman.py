@@ -1,5 +1,5 @@
 import random
-letters_guessed = []
+
 
 #empty list
 
@@ -20,7 +20,7 @@ def load_word():
 
 def is_word_guessed(secret_word, letters_guessed):
 
-    if letters_guesed == secret_word:
+    if letters_guessed == secret_word:
         secret_word = True
     else:
         secret_word = False
@@ -69,12 +69,12 @@ def is_guess_in_word(guess, secret_word):
     return(guess in secret_word)
 
     for letters in secret_word:
-        if letters == secret_word:
+        if letters == correct_word:
             return True
-    else:
-        # print("Oops, wrong answer! Try again!")
-        return False
-        # guesses_used -=1
+        else:
+            # print("Oops, wrong answer! Try again!")
+            return False
+
 
 
 
@@ -93,8 +93,32 @@ def spaceman(secret_word):
     print("You can guess incorrectly 7 times. Only one letter per round shall be guessed.")
     print("Good luck!")
     guesses_used = 7
+    letters_guessed = []
+
     while guesses_used > 0:
-        player_guess = input("Enter a character:")
+        player_input = input("Enter a character:")
+
+        # if len(player_input) > 1:
+        #     print("Sorry, one character only!")
+
+        if is_guess_in_word(player_input,secret_word):
+            print("That is right!")
+            letters_guessed.append(player_input)
+
+            if is_word_guessed(secret_word, letters_guessed):
+                print("Congrats! You guessed the code!")
+                break
+
+        else:
+            print("Sorry, wrong answer. Try again!")
+            guesses_used -=1
+        print(get_guessed_word(secret_word, letters_guessed))
+        print("guesses left, " + str(guesses_used))
+
+    else:
+        print("Game over. Try again soon!")
+        print("The secret code is " +secret_word)
+
 
     #TODO: Ask the player to guess one letter per round and check that it is only one letter
 
@@ -108,11 +132,12 @@ def spaceman(secret_word):
 #These function calls that will start the game
 play_again = True
 while play_again:
-    secret_word = load_word()
-    spaceman(secret_word)
+        secret_word = load_word()
+        spaceman(secret_word)
 
-    play_again = input("Try again?").lower()
-    if play_again == "yes":
-        play_again = True
-    else:
-        play_again = False
+        play_again = input("Try again? (comment yes if so, no otherwise)")
+        if play_again == "yes":
+            play_again = True
+        elif play_again == "no":
+            play_again = False
+            
