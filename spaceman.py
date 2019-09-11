@@ -1,41 +1,41 @@
 import random
 
-if guesses_used == 6
-print(" _________     ")
-elif guesses_used == 5
-print(" _________     ")
-print("|         |    ")
-elif if guesses_used == 4
-print(" _________     ")
-print("|         |    ")
-print("|         |    ")
-
-elif guesses_used == 3
-print(" _________     ")
-print("|         |    ")
-print("|             ")
-print("|        /|\  ")
-elif guesses_used == 2
-print(" _________     ")
-print("|         |    ")
-print("|         0    ")
-print("|        /|\   ")
-print("|         |    ")
-elif guesses_used == 1
- print(" _________     ")
- print("|         |    ")
- print("|         0    ")
- print("|        /|\  ")
- print("|         |    ")
- print("|         |    ")
- elif guesses_used == 0
- print(" _________     ")
- print("|         |    ")
- print("|         0    ")
- print("|        /|\  ")
- print("|         |    ")
- print("|         |    ")
- print("|        / \   ")
+def print_spaceman(guesses_used):
+    if guesses_used == 6:
+        print(" _________     ")
+    elif guesses_used == 5:
+        print(" _________     ")
+        print("|         |    ")
+    elif guesses_used == 4:
+        print(" _________     ")
+        print("|         |    ")
+        print("|         |    ")
+    elif guesses_used == 3:
+        print(" _________     ")
+        print("|         |    ")
+        print("|             ")
+        print("|        /|\  ")
+    elif guesses_used == 2:
+        print(" _________     ")
+        print("|         |    ")
+        print("|         0    ")
+        print("|        /|\   ")
+        print("|         |    ")
+    elif guesses_used == 1:
+        print(" _________     ")
+        print("|         |    ")
+        print("|         0    ")
+        print("|        /|\  ")
+        print("|         |    ")
+        print("|         |    ")
+    elif guesses_used == 0:
+        print(" _________     ")
+        print("|         |    ")
+        print("|         0    ")
+        print("|        /|\  ")
+        print("|         |    ")
+        print("|         |    ")
+        print("|        / \   ")
 
 #empty list
 
@@ -85,9 +85,9 @@ def get_guessed_word(secret_word, letters_guessed):
 
     #TODO: Loop through the letters in secret word and build a string that shows the letters that have been guessed correctly so far that are saved in letters_guessed and underscores for the letters that have not been guessed yet
     correct_letters = ""
-    for letters in secret_word:
-        if letters in letters_guessed:
-            correct_letters += letters
+    for i in secret_word:
+        if i in letters_guessed:
+            correct_letters += i
         else:
             correct_letters += "_"
     return correct_letters
@@ -148,6 +148,7 @@ def spaceman(secret_word):
         else:
             print("Sorry, wrong answer. Try again!")
             guesses_used -=1
+            print_spaceman(guesses_used)
         print(get_guessed_word(secret_word, letters_guessed))
         print("guesses left, " + str(guesses_used))
 
