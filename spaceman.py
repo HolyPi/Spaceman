@@ -177,4 +177,5 @@ while play_again:
         if play_again == "yes":
             play_again = True
         if play_again == "no":
+            print("Thanks for playing!")
             play_again = False
