@@ -58,7 +58,7 @@ def get_guessed_word(secret_word, letters_guessed):
 for i in secret_word
 if i in letters_guessed:
     display
-    else
+else
     display[i] = "_"
     pass
 
@@ -76,7 +76,7 @@ def is_guess_in_word(guess, secret_word):
 if guess in secret_word:
     print("You got that one! Keep going!")
     return true
-    else
+else
     print("Looks like that guess is not in the word. Try again!")
     return false
 
