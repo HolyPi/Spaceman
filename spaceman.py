@@ -72,9 +72,9 @@ def is_guess_in_word(guess, secret_word):
         if letters == secret_word:
             return True
     else:
-        # print("Oops, wrong answer! Try again!")
+        print("Oops, wrong answer! Try again!")
         return False
-        # guesses_used -=1
+        guesses_used -=1
 
 
 
@@ -95,6 +95,25 @@ def spaceman(secret_word):
     guesses_used = 7
     while guesses_used > 0:
         player_guess = input("Enter a character:")
+
+        if is_guess_in_word(player_input,secret_word):
+            print("Correct!")
+            letters_guessed.append(player_input)
+
+            if is_word_guessed(secret_word, letters_guessed):
+                print("Congrats! You guessed the code!")
+                break
+
+            else:
+                print("Sorry, wrong answer. Try again!")
+                guesses_used -=1
+        print(get_guessed_word(secret_word, letters_guessed))
+        print("guesses left, " + str(guesses_used))
+
+    else:
+        print("Game over. Try again soon!")
+        print("The secret code is " +secret_word)
+
 
     #TODO: Ask the player to guess one letter per round and check that it is only one letter
 
