@@ -98,6 +98,7 @@ def spaceman(secret_word):
     print ("Good luck!")
     guesses_used = 7
     while guesses_used > 0
+    player_input
 
     print("Guesses remaining:", guesses)
     print()
