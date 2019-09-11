@@ -1,5 +1,41 @@
 import random
 
+if guesses_used == 6
+print(" _________     ")
+elif guesses_used == 5
+print(" _________     ")
+print("|         |    ")
+elif if guesses_used == 4
+print(" _________     ")
+print("|         |    ")
+print("|         |    ")
+
+elif guesses_used == 3
+print(" _________     ")
+print("|         |    ")
+print("|             ")
+print("|        /|\  ")
+elif guesses_used == 2
+print(" _________     ")
+print("|         |    ")
+print("|         0    ")
+print("|        /|\   ")
+print("|         |    ")
+elif guesses_used == 1
+ print(" _________     ")
+ print("|         |    ")
+ print("|         0    ")
+ print("|        /|\  ")
+ print("|         |    ")
+ print("|         |    ")
+ elif guesses_used == 0
+ print(" _________     ")
+ print("|         |    ")
+ print("|         0    ")
+ print("|        /|\  ")
+ print("|         |    ")
+ print("|         |    ")
+ print("|        / \   ")
 
 #empty list
 
@@ -71,17 +107,10 @@ def is_guess_in_word(guess, secret_word):
     for letters in secret_word:
         if letters == correct_word:
             return True
-<<<<<<< HEAD
         else:
             # print("Oops, wrong answer! Try again!")
             return False
 
-=======
-    else:
-        print("Oops, wrong answer! Try again!")
-        return False
-        guesses_used -=1
->>>>>>> 3c73910ccd61900bcb27fca32ffbe4a8e2063348
 
 
 
@@ -113,31 +142,12 @@ def spaceman(secret_word):
             letters_guessed.append(player_input)
 
             if is_word_guessed(secret_word, letters_guessed):
-                print("Hooray! You guessed the code!")
+                print("Hooray! You guessed the word!")
                 break
 
         else:
             print("Sorry, wrong answer. Try again!")
             guesses_used -=1
-        print(get_guessed_word(secret_word, letters_guessed))
-        print("guesses left, " + str(guesses_used))
-
-    else:
-        print("Game over. Try again soon!")
-        print("The secret code is " +secret_word)
-
-
-        if is_guess_in_word(player_input,secret_word):
-            print("Correct!")
-            letters_guessed.append(player_input)
-
-            if is_word_guessed(secret_word, letters_guessed):
-                print("Congrats! You guessed the code!")
-                break
-
-            else:
-                print("Sorry, that's wrong. Try again!")
-                guesses_used -=1
         print(get_guessed_word(secret_word, letters_guessed))
         print("guesses left, " + str(guesses_used))
 
@@ -161,8 +171,8 @@ while play_again:
         secret_word = load_word()
         spaceman(secret_word)
 
-        play_again = input("Try again? (comment yes if so, no otherwise)")
+        play_again = input("Try again? (say yes if so, otherwise, no)").lower()
         if play_again == "yes":
             play_again = True
-        elif play_again == "no":
+        if play_again == "no":
             play_again = False
