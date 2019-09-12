@@ -108,7 +108,6 @@ def is_guess_in_word(guess, secret_word):
         if letters == correct_word:
             return True
         else:
-            # print("Oops, wrong answer! Try again!")
             return False
 
 
@@ -133,10 +132,6 @@ def spaceman(secret_word):
 
     while guesses_used > 0:
         player_input = input("Enter a character:").lower()
-
-
-        # if len(player_input) > 1:
-        #     print("Sorry, one character only!")
 
         if is_guess_in_word(player_input,secret_word):
             print("That is right!")
@@ -177,4 +172,5 @@ while play_again:
         if play_again == "yes":
             play_again = True
         if play_again == "no":
+            print("Thanks for playing!")
             play_again = False
