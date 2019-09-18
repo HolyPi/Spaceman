@@ -14,28 +14,28 @@ def print_spaceman(guesses_used):
         print(" _________     ")
         print("|         |    ")
         print("|             ")
-        print("|        /|\  ")
+        print("|        /|/  ")
     elif guesses_used == 2:
         print(" _________     ")
         print("|         |    ")
         print("|         0    ")
-        print("|        /|\   ")
+        print("|        /|/  ")
         print("|         |    ")
     elif guesses_used == 1:
         print(" _________     ")
         print("|         |    ")
         print("|         0    ")
-        print("|        /|\  ")
+        print("|        /|/  ")
         print("|         |    ")
         print("|         |    ")
     elif guesses_used == 0:
         print(" _________     ")
         print("|         |    ")
         print("|         0    ")
-        print("|        /|\  ")
+        print("|        /|/  ")
         print("|         |    ")
         print("|         |    ")
-        print("|        / \   ")
+        print("|        / /  ")
 
 #empty list
 
@@ -56,11 +56,12 @@ def load_word():
 
 def is_word_guessed(secret_word, letters_guessed):
 
-    if letters_guessed == secret_word:
-        secret_word = True
-    else:
-        secret_word = False
-    pass
+    for letter in secret_word:
+        if letter not in letters_guessed:
+            return False
+
+
+        return True
 
 
     # A function that checks if all the letters of the secret word have been guessed.
@@ -131,7 +132,7 @@ def spaceman(secret_word):
     letters_guessed = []
 
     while guesses_used > 0:
-        player_input = input("Enter a character:").lower()
+        player_input = input("Enter a character:".lower())
 
         if is_guess_in_word(player_input,secret_word):
             print("That is right!")
@@ -163,14 +164,14 @@ def spaceman(secret_word):
 
 
 #These function calls that will start the game
-play_again = True
-while play_again:
-        secret_word = load_word()
-        spaceman(secret_word)
+# play_again = True
+# while play_again:
+#         secret_word = load_word()
+#         spaceman(secret_word)
 
-        play_again = input("Try again? (say yes if so, otherwise, no)").lower()
-        if play_again == "yes":
-            play_again = True
-        if play_again == "no":
-            print("Thanks for playing!")
-            play_again = False
+        # play_again = input("Try again? (say yes if so, otherwise, no)").lower()
+        # if play_again == "yes":
+        #     play_again = True
+        # if play_again == "no":
+        #     print("Thanks for playing!")
+        #     play_again = False <-- had to be uncommented for test functions to work
